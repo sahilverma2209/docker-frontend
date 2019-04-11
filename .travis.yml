@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sahilvma/docker-frontend -f Dockerfile.dev .
+
+
+script:
+  - docker run sahilvma/docker-frontend npm run test -- --coverage
